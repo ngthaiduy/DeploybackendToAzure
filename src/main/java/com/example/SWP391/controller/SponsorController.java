@@ -42,7 +42,7 @@ public class SponsorController {
 
     @GetMapping("/{id}")
     public ResponseEntity<SponsorDto> getSponsorById(@PathVariable Long id) {
-     //   Optional<SponsorDto> sponsorOptional = sponsorService.getSponsorById(id);
+      Optional<SponsorDto> sponsorOptional = sponsorService.getSponsorById(id);
         return sponsorOptional
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
